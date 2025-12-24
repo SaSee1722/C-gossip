@@ -1,6 +1,6 @@
 import { useRouter } from 'expo-router';
 import { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Switch } , Animated } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Switch , Animated } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Avatar } from '../../../components/ui/Avatar';
@@ -12,7 +12,7 @@ import { profileService } from '../../../services/profileService';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as ImagePicker from 'expo-image-picker';
 import { getSharedSupabaseClient } from '../../../template/core/client';
-import { Platform } , Animated } from 'react-native';
+import { Platform , Animated } from 'react-native';
 
 export default function SettingsTab() {
   const router = useRouter();

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, TextInput, Platform, Modal, Pressable, Vibration, ScrollView } , Animated } from 'react-native';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, TextInput, Platform, Modal, Pressable, Vibration, ScrollView , Animated } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useState, useEffect, useRef } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';

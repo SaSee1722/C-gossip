@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
   Platform,
-} , Animated } from 'react-native';
+, Animated } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';

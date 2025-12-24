@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Dimensions, ScrollView } , Animated } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, ScrollView , Animated } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
