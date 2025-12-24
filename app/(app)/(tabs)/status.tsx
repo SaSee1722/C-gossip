@@ -34,7 +34,7 @@ export default function StatusTab() {
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
-      <Animated.View entering={FadeIn} style={styles.header}>
+      <View style={styles.header}>
         <View>
           <View style={styles.titleRow}>
             <GradientText
@@ -56,7 +56,7 @@ export default function StatusTab() {
           onPress={() => { /* Add story flow */ }}
           size={58}
         />
-      </Animated.View>
+      </View>
 
       <FlatList
         data={[{ type: 'my' as const }, ...userStories]}
@@ -65,7 +65,7 @@ export default function StatusTab() {
         renderItem={({ item, index }) => {
           if ('type' in item && item.type === 'my') {
             return (
-              <Animated.View entering={FadeInDown.delay(100)} style={styles.section}>
+              <View style={styles.section}>
                 <Text style={styles.sectionTitle}>My Status</Text>
                 <TouchableOpacity style={styles.myStatusCard}>
                   <Avatar uri={user?.avatar} size={56} />
@@ -81,7 +81,7 @@ export default function StatusTab() {
                 {otherStories.length > 0 && (
                   <Text style={[styles.sectionTitle, styles.recentTitle]}>Recent Updates</Text>
                 )}
-              </Animated.View>
+              </View>
             );
           }
 
@@ -90,7 +90,7 @@ export default function StatusTab() {
             const lastStory = item.stories[item.stories.length - 1];
 
             return (
-              <Animated.View entering={SlideInRight.delay(index * 100).springify()}>
+              <View>
                 <TouchableOpacity
                   onPress={() => router.push(`/story/${item.userId}`)}
                   style={styles.storyCard}
@@ -108,7 +108,7 @@ export default function StatusTab() {
                     </Text>
                   </View>
                 </TouchableOpacity>
-              </Animated.View>
+              </View>
             );
           }
           return null;

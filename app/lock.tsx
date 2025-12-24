@@ -48,14 +48,14 @@ export default function LockScreen() {
 
   return (
     <View style={[styles.container, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
-      <Animated.View entering={FadeIn.duration(600)} style={styles.content}>
+      <View style={styles.content}>
         <View style={styles.header}>
           <Ionicons name="lock-closed" size={48} color={colors.primary} />
           <Text style={styles.title}>Enter PIN</Text>
           <Text style={styles.subtitle}>Unlock to access GOSSIP</Text>
         </View>
 
-        <Animated.View entering={ZoomIn.delay(300).duration(400)} style={styles.pinContainer}>
+        <View style={styles.pinContainer}>
           {Array.from({ length: PIN_LENGTH }).map((_, i) => (
             <View
               key={i}
@@ -65,7 +65,7 @@ export default function LockScreen() {
               ]}
             />
           ))}
-        </Animated.View>
+        </View>
 
         <GlassCard style={styles.keypad}>
           <View style={styles.keypadContent}>
@@ -106,7 +106,7 @@ export default function LockScreen() {
         </GlassCard>
 
         <Text style={styles.hint}>Hint: Try 1234</Text>
-      </Animated.View>
+      </View>
     </View>
   );
 }

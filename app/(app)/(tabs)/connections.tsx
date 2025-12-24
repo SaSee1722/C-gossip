@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, ActivityIndicator } , Animated } from 'react-native';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, ActivityIndicator, Animated } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -40,7 +40,7 @@ export default function ConnectionsTab() {
   };
 
   const renderSearchResult = ({ item, index }: { item: User, index: number }) => (
-    <Animated.View entering={FadeInRight.delay(index * 100).springify()}>
+    <View>
       <GlassCard style={styles.connectionCard}>
         <Avatar uri={item.avatar} size={48} />
         <View style={styles.connectionInfo}>
@@ -61,12 +61,12 @@ export default function ConnectionsTab() {
           )}
         </TouchableOpacity>
       </GlassCard>
-    </Animated.View>
+    </View>
   );
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
-      <Animated.View entering={FadeIn} style={styles.header}>
+      <View style={styles.header}>
         <View>
           <View style={styles.titleRow}>
             <GradientText
@@ -82,16 +82,16 @@ export default function ConnectionsTab() {
           </View>
           <Text style={styles.subtitle}>Build your network.</Text>
         </View>
-      </Animated.View>
+      </View>
 
-      <Animated.View entering={FadeIn.delay(100)} style={styles.searchContainer}>
+      <View style={styles.searchContainer}>
         <Input
           placeholder="Search users..."
           value={searchQuery}
           onChangeText={setSearchQuery}
           style={styles.searchInput}
         />
-      </Animated.View>
+      </View>
 
       {searchQuery.length > 1 ? (
         <View style={styles.list}>
@@ -123,7 +123,7 @@ export default function ConnectionsTab() {
                     if (!user) return null;
 
                     return (
-                      <Animated.View key={request.id} entering={SlideInRight.delay(index * 80).springify()}>
+                      <View key={request.id}>
                         <GlassCard style={styles.requestCard}>
                           <View style={styles.requestContent}>
                             <Avatar uri={user.avatar} size={48} />
@@ -154,7 +154,7 @@ export default function ConnectionsTab() {
                             </TouchableOpacity>
                           </View>
                         </GlassCard>
-                      </Animated.View>
+                      </View>
                     );
                   })}
                 </View>
@@ -167,7 +167,7 @@ export default function ConnectionsTab() {
                   <Text style={styles.sectionTitle}>My Connections</Text>
                   {connections.length === 0 && <Text style={styles.emptyText}>No connections yet.</Text>}
                   {connections.map((user, index) => (
-                    <Animated.View key={user.id} entering={SlideInRight.delay(index * 60).springify()}>
+                    <View key={user.id}>
                       <TouchableOpacity>
                         <GlassCard style={styles.connectionCard}>
                           <Avatar uri={user.avatar} size={48} />
@@ -188,7 +188,7 @@ export default function ConnectionsTab() {
                           <Ionicons name="chevron-forward" size={20} color={colors.text.tertiary} />
                         </GlassCard>
                       </TouchableOpacity>
-                    </Animated.View>
+                    </View>
                   ))}
                 </View>
               );

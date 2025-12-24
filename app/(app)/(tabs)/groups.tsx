@@ -61,11 +61,11 @@ export default function GroupsTab() {
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
-      <Animated.View entering={FadeIn.duration(800)} style={styles.header}>
+      <View style={styles.header}>
         <View>
           <View style={styles.titleRow}>
             <GradientText text="Groups" style={styles.headerTitle} />
-            <Animated.Image
+            <Image
               source={require('../../../assets/images/groups_doodle.png')}
               style={[styles.headerIcon, { width: 48, height: 48 }]}
               resizeMode="contain"
@@ -79,9 +79,9 @@ export default function GroupsTab() {
           onPress={() => setShowCreateModal(true)}
           size={58}
         />
-      </Animated.View>
+      </View>
 
-      <Animated.View entering={FadeIn.delay(300)} style={styles.mainCard}>
+      <View style={styles.mainCard}>
         <FlatList
           data={groups}
           keyExtractor={item => item.id}
@@ -92,7 +92,7 @@ export default function GroupsTab() {
             </View>
           }
           renderItem={({ item, index }) => (
-            <Animated.View entering={FadeInRight.delay(index * 100).springify()}>
+            <View>
               <TouchableOpacity
                 activeOpacity={0.7}
                 style={styles.groupItem}
@@ -121,10 +121,10 @@ export default function GroupsTab() {
                 </View>
                 <MaterialIcons name="chevron-right" size={20} color="rgba(255, 255, 255, 0.2)" />
               </TouchableOpacity>
-            </Animated.View>
+            </View>
           )}
         />
-      </Animated.View>
+      </View>
 
       <Modal
         visible={showCreateModal}
@@ -133,7 +133,7 @@ export default function GroupsTab() {
         onRequestClose={() => setShowCreateModal(false)}
       >
         <Pressable style={styles.modalOverlay} onPress={() => setShowCreateModal(false)}>
-          <Animated.View entering={ZoomIn} style={styles.modalContent} onStartShouldSetResponder={() => true}>
+          <View style={styles.modalContent} onStartShouldSetResponder={() => true}>
             <Text style={styles.modalTitle}>ESTABLISH GROUP PROTOCOL</Text>
 
             <ScrollView showsVerticalScrollIndicator={false}>
@@ -201,7 +201,7 @@ export default function GroupsTab() {
                 </Text>
               </TouchableOpacity>
             </ScrollView>
-          </Animated.View>
+          </View>
         </Pressable>
       </Modal>
     </View>

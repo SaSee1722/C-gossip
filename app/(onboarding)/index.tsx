@@ -23,10 +23,10 @@ export default function Welcome() {
         showsVerticalScrollIndicator={false}
         bounces={false}
       >
-        <Animated.View entering={FadeIn.duration(1000)} style={styles.content}>
+        <View style={styles.content}>
           <View style={styles.header}>
-            <Animated.View
-              entering={ZoomIn.delay(300).duration(800).springify()}
+            <View
+             
               style={styles.iconContainer}
             >
               <LinearGradient
@@ -34,25 +34,25 @@ export default function Welcome() {
                 style={styles.iconBackground}
               >
                 <MaterialIcons name="chat-bubble-outline" size={width * 0.12} color={colors.primary} />
-                <Animated.View
-                  entering={ZoomIn.delay(800)}
+                <View
+                 
                   style={styles.sparkleContainer}
                 >
                   <MaterialIcons name="auto-awesome" size={16} color={colors.primary} />
-                </Animated.View>
+                </View>
               </LinearGradient>
-            </Animated.View>
+            </View>
 
-            <Animated.View entering={SlideInUp.delay(500).duration(800)}>
+            <View>
               <GradientText text="Gossip." style={styles.logo} />
-            </Animated.View>
-            <Animated.Text entering={FadeIn.delay(700)} style={styles.tagline}>
+            </View>
+            <Text style={styles.tagline}>
               PRIVATE CONVERSATIONS{"\n"}REFINED FOR THE ELITE.
-            </Animated.Text>
+            </Text>
           </View>
 
           <View style={styles.features}>
-            <Animated.View entering={FadeInDown.delay(900).springify()} style={styles.featureItem}>
+            <View style={styles.featureItem}>
               <View style={styles.featureIconContainer}>
                 <MaterialIcons name="bolt" size={24} color={colors.primary} />
               </View>
@@ -60,9 +60,9 @@ export default function Welcome() {
                 <Text style={styles.featureTitle}>INSTANT GOSSIP</Text>
                 <Text style={styles.featureSubtitle}>REAL-TIME RUMORS THAT TRAVEL FAST.</Text>
               </View>
-            </Animated.View>
+            </View>
 
-            <Animated.View entering={FadeInDown.delay(1100).springify()} style={styles.featureItem}>
+            <View style={styles.featureItem}>
               <View style={styles.featureIconContainer}>
                 <MaterialIcons name="shield" size={20} color={colors.primary} />
               </View>
@@ -70,10 +70,10 @@ export default function Welcome() {
                 <Text style={styles.featureTitle}>GHOST SECURITY</Text>
                 <Text style={styles.featureSubtitle}>END-TO-END ENCRYPTION FOR EVERY SECRET.</Text>
               </View>
-            </Animated.View>
+            </View>
           </View>
 
-          <Animated.View entering={FadeInDown.delay(1300).duration(800)} style={styles.footer}>
+          <View style={styles.footer}>
             <Button
               title="Get Started"
               onPress={() => router.push('/(onboarding)/auth')}
@@ -83,8 +83,8 @@ export default function Welcome() {
             <Text style={styles.footerText}>
               BY ENTERING, YOU ACCEPT OUR <Text style={styles.footerTextBold}>GHOST PROTOCOLS</Text>
             </Text>
-          </Animated.View>
-        </Animated.View>
+          </View>
+        </View>
       </ScrollView>
     </View>
   );

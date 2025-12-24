@@ -56,7 +56,7 @@ export default function ChatScreen() {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       keyboardVerticalOffset={0}
     >
-      <Animated.View entering={SlideInUp}>
+      <View>
         <BlurView intensity={80} style={styles.header}>
           <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
             <Ionicons name="chevron-back" size={28} color={colors.text.primary} />
@@ -75,7 +75,7 @@ export default function ChatScreen() {
             <Ionicons name="videocam" size={24} color={colors.primary} />
           </TouchableOpacity>
         </BlurView>
-      </Animated.View>
+      </View>
       {/* Removed the extra closing Animated.View tag here */}
 
       <FlatList
@@ -88,8 +88,8 @@ export default function ChatScreen() {
           const AnimatedComponent = isSent ? FadeInRight : FadeInLeft;
 
           return (
-            <Animated.View
-              entering={AnimatedComponent.delay(index * 50)}
+            <View
+             
               style={[styles.messageContainer, isSent ? styles.sentContainer : styles.receivedContainer]}
             >
               {!isSent && <Avatar uri={otherUser?.avatar} size={32} style={styles.messageAvatar} />}
@@ -109,13 +109,13 @@ export default function ChatScreen() {
                   )}
                 </View>
               </View>
-            </Animated.View>
+            </View>
           );
         }}
         onContentSizeChange={() => flatListRef.current?.scrollToEnd({ animated: false })}
       />
 
-      <Animated.View entering={SlideInDown}>
+      <View>
         <BlurView intensity={80} style={[styles.inputContainer, { paddingBottom: insets.bottom + spacing.sm }]}>
           <TouchableOpacity style={styles.attachButton}>
             <Ionicons name="add-circle-outline" size={28} color={colors.primary} />
@@ -137,7 +137,7 @@ export default function ChatScreen() {
             <Ionicons name="send" size={20} color={colors.white} />
           </TouchableOpacity>
         </BlurView>
-      </Animated.View>
+      </View>
       {/* Removed the extra closing Animated.View tag here */}
     </KeyboardAvoidingView>
   );

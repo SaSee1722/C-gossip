@@ -81,25 +81,25 @@ export default function Auth() {
         bounces={false}
       >
         <View style={styles.header}>
-          <Animated.View
-            entering={ZoomIn.delay(300).springify()}
+          <View
+           
             style={[styles.sparkleIcon, { right: width * 0.2 }]}
           >
             <MaterialIcons name="auto-awesome" size={24} color={colors.primary} />
-          </Animated.View>
+          </View>
 
-          <Animated.View entering={FadeInDown.duration(800).springify()}>
+          <View>
             <GradientText
               text={isLogin ? 'Gossip.' : 'Join.'}
               style={styles.logo}
             />
-          </Animated.View>
-          <Animated.Text entering={FadeInDown.delay(200).duration(800)} style={styles.tagline}>
+          </View>
+          <Text style={styles.tagline}>
             {isLogin ? 'WELCOME BACK TO THE RUMORS' : 'START SHARING YOUR SECRETS'}
-          </Animated.Text>
+          </Text>
         </View>
 
-        <Animated.View entering={FadeInDown.delay(400).springify()} style={styles.card}>
+        <View style={styles.card}>
           <View style={styles.tabBar}>
             <AnimatedTouchableOpacity
               onPress={() => setIsLogin(true)}
@@ -118,7 +118,7 @@ export default function Auth() {
           </View>
 
           <View style={styles.form}>
-            <Animated.View entering={FadeIn.duration(400)}>
+            <View>
               {!isLogin && (
                 <Input
                   placeholder="Username"
@@ -155,7 +155,7 @@ export default function Auth() {
                   icon="lock-outline"
                 />
               )}
-            </Animated.View>
+            </View>
 
             {isLogin && (
               <TouchableOpacity style={styles.forgotPassword} activeOpacity={0.6}>
@@ -170,9 +170,9 @@ export default function Auth() {
               style={styles.submitButton}
             />
           </View>
-        </Animated.View>
+        </View>
 
-        <Animated.View entering={FadeIn.delay(800)} style={styles.footerSpacing} />
+        <View style={styles.footerSpacing} />
       </ScrollView>
     </KeyboardAvoidingView>
   );

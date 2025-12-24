@@ -254,11 +254,11 @@ export default function ChatsTab() {
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
-      <Animated.View entering={FadeIn.duration(800)} style={styles.header}>
+      <View style={styles.header}>
         <View style={styles.titleContainer}>
           <View style={styles.titleRow}>
             <GradientText text="Gossip..." style={styles.headerTitle} />
-            <Animated.Image
+            <Image
               source={require('../../../assets/images/gossip_doodle.png')}
               style={[styles.headerIcon, { width: 48, height: 48 }]}
               resizeMode="contain"
@@ -276,9 +276,9 @@ export default function ChatsTab() {
           <MaterialIcons name="notifications-none" size={26} color={colors.white} />
           {requests.length > 0 && <View style={styles.notificationDot} />}
         </TouchableOpacity>
-      </Animated.View>
+      </View>
 
-      <Animated.View entering={SlideInDown.delay(200)} style={styles.searchContainer}>
+      <View style={styles.searchContainer}>
         <View style={styles.searchBar}>
           <MaterialIcons name="search" size={22} color="rgba(255, 255, 255, 0.2)" />
           <TextInput
@@ -292,9 +292,9 @@ export default function ChatsTab() {
             ]}
           />
         </View>
-      </Animated.View>
+      </View>
 
-      <Animated.View entering={FadeIn.delay(400)} style={styles.mainCard}>
+      <View style={styles.mainCard}>
         {searchQuery.length > 1 ? (
           <View style={styles.searchResultSection}>
             <Text style={styles.sectionTitle}>SEARCH RESULTS</Text>
@@ -400,7 +400,7 @@ export default function ChatsTab() {
                     const nameColor = index % 2 === 0 ? colors.primary : colors.secondary;
 
                     return (
-                      <Animated.View entering={FadeInRight.delay(index * 100).springify()}>
+                      <View>
                         <TouchableOpacity
                           onPress={() => handleChatPress(item)}
                           onLongPress={() => handleLongPress(item)}
@@ -427,7 +427,7 @@ export default function ChatsTab() {
                             </Text>
                           </View>
                         </TouchableOpacity>
-                      </Animated.View>
+                      </View>
                     );
                   }}
                 />
@@ -435,12 +435,12 @@ export default function ChatsTab() {
             </View> {/* End Gossip Card Container */}
           </>
         )}
-      </Animated.View>
+      </View>
 
       {/* Notifications Modal */}
       <Modal visible={showNotifications} transparent animationType="fade" onRequestClose={() => setShowNotifications(false)}>
         <Pressable style={styles.modalOverlay} onPress={() => setShowNotifications(false)}>
-          <Animated.View entering={ZoomIn} style={styles.modalContent}>
+          <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>ALERTS</Text>
             <FlatList
               data={requests}
@@ -467,14 +467,14 @@ export default function ChatsTab() {
                 );
               }}
             />
-          </Animated.View>
+          </View>
         </Pressable>
       </Modal>
 
       {/* Vibe Creator Modal */}
       <Modal visible={showVibeCreator} transparent animationType="slide">
         <View style={styles.modalOverlay}>
-          <Animated.View entering={SlideInDown} style={styles.vibeCreatorContent}>
+          <View style={styles.vibeCreatorContent}>
             <View style={styles.mediaPreview}>
               {pendingVibeMedia?.type === 'video' ? (
                 <Video
@@ -516,7 +516,7 @@ export default function ChatsTab() {
                 </TouchableOpacity>
               </View>
             </View>
-          </Animated.View>
+          </View>
         </View>
       </Modal>
 
@@ -578,7 +578,7 @@ export default function ChatsTab() {
       {/* Options Modal (Block/Lock) */}
       <Modal visible={showOptionsModal} transparent animationType="slide" onRequestClose={() => setShowOptionsModal(false)}>
         <Pressable style={styles.modalOverlay} onPress={() => setShowOptionsModal(false)}>
-          <Animated.View entering={SlideInDown} style={[styles.optionsContent, { backgroundColor: '#0A0A0A' }]}>
+          <View style={[styles.optionsContent, { backgroundColor: '#0A0A0A' }]}>
             <View style={styles.dragHandle} />
             <Text style={styles.optionsTitle}>{selectedChat?.isGroup ? 'GROUP PROTOCOL' : 'USER PROTOCOL'}</Text>
 
@@ -600,14 +600,14 @@ export default function ChatsTab() {
               <Ionicons name="ban" size={24} color="#ff4444" />
               <Text style={[styles.optionText, { color: '#ff4444' }]}>BLOCK ENTITY</Text>
             </TouchableOpacity>
-          </Animated.View>
+          </View>
         </Pressable>
       </Modal>
 
       {/* PIN Modal */}
       <Modal visible={showPinModal} transparent animationType="fade">
         <View style={styles.modalOverlay}>
-          <Animated.View entering={ZoomIn} style={styles.pinModalContent}>
+          <View style={styles.pinModalContent}>
             <Ionicons name="keypad" size={40} color={colors.primary} style={{ alignSelf: 'center', marginBottom: spacing.lg }} />
             <Text style={styles.pinTitle}>{pinMode === 'setup' ? 'ESTABLISH SECRET PIN' : 'INPUT SECRET PIN'}</Text>
             <Text style={styles.pinSubtitle}>{pinMode === 'setup' ? 'Set a 4-digit code to secure whispers.' : 'Access requires authorization.'}</Text>
@@ -635,7 +635,7 @@ export default function ChatsTab() {
             <TouchableOpacity onPress={() => setShowPinModal(false)} style={{ marginTop: spacing.md }}>
               <Text style={{ color: 'rgba(255,255,255,0.3)', textAlign: 'center', fontSize: 10, fontWeight: '900' }}>ABORT</Text>
             </TouchableOpacity>
-          </Animated.View>
+          </View>
         </View>
       </Modal>
 

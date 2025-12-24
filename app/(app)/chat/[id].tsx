@@ -122,8 +122,8 @@ export default function ChatScreen() {
                     const isLastInSequence = index === 0 || chatMessages[index - 1].senderId !== item.senderId;
 
                     return (
-                        <Animated.View
-                            entering={FadeInUp.delay(index * 50)}
+                        <View
+                           
                             style={[
                                 styles.messageRow,
                                 isMe ? styles.myMessageRow : styles.theirMessageRow,
@@ -152,7 +152,7 @@ export default function ChatScreen() {
                                     {formatTime(item.timestamp)}
                                 </Text>
                             </View>
-                        </Animated.View>
+                        </View>
                     );
                 }}
                 onContentSizeChange={() => flatListRef.current?.scrollToOffset({ offset: 0, animated: true })}

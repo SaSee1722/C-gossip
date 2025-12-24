@@ -171,14 +171,14 @@ export default function Setup() {
         showsVerticalScrollIndicator={false}
         bounces={false}
       >
-        <Animated.View entering={FadeInUp.duration(800).springify()} style={styles.header}>
+        <View style={styles.header}>
           <GradientText text="Identity." style={styles.title} />
           <Text style={styles.subtitle}>REVEAL WHO YOU ARE TO THE ELITE.</Text>
-        </Animated.View>
+        </View>
 
-        <Animated.View entering={FadeInDown.delay(300).springify()} style={styles.card}>
+        <View style={styles.card}>
           <View style={styles.avatarSection}>
-            <Animated.View entering={ZoomIn.delay(600).duration(800).springify()}>
+            <View>
               {uploading ? (
                 <View style={[styles.loadingAvatar, { width: width * 0.3, height: width * 0.3, borderRadius: (width * 0.3) / 2 }]}>
                   <ActivityIndicator color={colors.primary} />
@@ -186,7 +186,7 @@ export default function Setup() {
               ) : (
                 <Avatar uri={avatar} size={width * 0.3} />
               )}
-            </Animated.View>
+            </View>
             <TouchableOpacity
               style={styles.changeAvatarButton}
               activeOpacity={0.7}
@@ -201,7 +201,7 @@ export default function Setup() {
           </View>
 
           <View style={styles.form}>
-            <Animated.View entering={FadeInDown.delay(700).duration(600)}>
+            <View>
               <Input
                 placeholder="USERNAME"
                 value={username}
@@ -270,9 +270,9 @@ export default function Setup() {
                 onPress={handleComplete}
                 style={styles.submitButton}
               />
-            </Animated.View>
+            </View>
           </View>
-        </Animated.View>
+        </View>
 
         <View style={styles.footerSpacing} />
       </ScrollView>

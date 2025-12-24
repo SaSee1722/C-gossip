@@ -147,7 +147,7 @@ export default function SettingsTab() {
         contentContainerStyle={[styles.content, { paddingTop: insets.top + spacing.xl, paddingBottom: insets.bottom + 100 }]}
         showsVerticalScrollIndicator={false}
       >
-        <Animated.View entering={ZoomIn.duration(800)} style={styles.profileHeader}>
+        <View style={styles.profileHeader}>
           <View style={[styles.avatarWrapper, { shadowColor: accentColor }]}>
             <View style={[styles.avatarOutline, { borderColor: accentColor }]}>
               <Avatar
@@ -166,30 +166,30 @@ export default function SettingsTab() {
           <Text style={[styles.profileEmail, { color: accentColor }]}>
             {profile?.username ? `@${profile.username.toUpperCase()}` : ''}
           </Text>
-        </Animated.View>
+        </View>
 
         <View style={styles.divider} />
 
-        <Animated.View entering={FadeInDown.delay(200)} style={styles.sectionHeader}>
+        <View style={styles.sectionHeader}>
           <Text style={styles.sectionTitle}>PERSONAL INFO</Text>
           <TouchableOpacity onPress={() => router.push('/(onboarding)/setup')}>
             <Text style={[styles.editButtonText, { color: accentColor }]}>EDIT</Text>
           </TouchableOpacity>
-        </Animated.View>
+        </View>
 
-        <Animated.View entering={FadeInDown.delay(300)} style={styles.card}>
+        <View style={styles.card}>
           <InfoItem icon="badge" label="FULL NAME" value={profile?.full_name || 'Not Set'} accentColor={accentColor} />
           <InfoItem icon="calendar-today" label="AGE" value={profile?.age?.toString() || 'Not Set'} accentColor={accentColor} />
           <InfoItem icon="smartphone" label="PHONE" value={profile?.phone || 'Not Set'} accentColor={accentColor} />
           <InfoItem icon="fingerprint" label="GENDER" value={profile?.gender || 'Not Set'} accentColor={accentColor} />
           <InfoItem icon="record-voice-over" label="BIO" value={profile?.bio || 'No bio yet'} isLast accentColor={accentColor} />
-        </Animated.View>
+        </View>
 
-        <Animated.View entering={FadeInDown.delay(400)} style={styles.sectionHeader}>
+        <View style={styles.sectionHeader}>
           <Text style={styles.sectionTitle}>SETTINGS</Text>
-        </Animated.View>
+        </View>
 
-        <Animated.View entering={FadeInDown.delay(500)} style={styles.card}>
+        <View style={styles.card}>
           <View style={styles.settingItem}>
             <View style={styles.settingLeft}>
               <View style={[styles.iconBox, { backgroundColor: 'rgba(255, 255, 255, 0.05)' }]}>
@@ -223,13 +223,13 @@ export default function SettingsTab() {
               <Text style={[styles.settingText, { color: colors.error }]}>Burn Identity</Text>
             </View>
           </TouchableOpacity>
-        </Animated.View>
+        </View>
 
-        <Animated.View entering={FadeInDown.delay(600)}>
+        <View>
           <TouchableOpacity style={styles.logoutButton} onPress={logout}>
             <Text style={styles.logoutText}>TERMINATE SESSION</Text>
           </TouchableOpacity>
-        </Animated.View>
+        </View>
       </ScrollView>
     </View>
   );
